@@ -15,9 +15,7 @@ function calc() {
 
     const Fp = positive - Tp;
 
-    const deSpe = 1 - Spe;
-
-    const Tn = Fp / deSpe;
+    const Tn = Fp / (1 - Spe);
     const nonInfect = Fp + Tn;
 
     const negative = Tn + Fn;
