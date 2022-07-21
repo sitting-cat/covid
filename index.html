@@ -11,6 +11,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="calc.js"></script>
 </head>
 
 <body>
@@ -32,10 +33,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col s4">
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">入力欄</span> 感度：
+                        <span class="card-title">入力欄</span> 感度（再現率）：
                         <div class="input-field inline">
                             <input type="text" name="sensitivity" id="sen" class="validate"><label for="sen">数値</label>
                         </div>%
@@ -43,10 +44,32 @@
                         <div class="input-field inline">
                             <input type="text" name="specificity" id="spe" class="validate"><label for="sen">数値</label>
                         </div>%
-                        <br>感度：
+                        <br>精度（適合度）：
                         <div class="input-field inline">
                             <input type="text" name="accuracy" id="acc" class="validate"><label for="sen">数値</label>
                         </div>%
+                        <button class="btn-large waves-effect waves-light" onclick="calc();">結果を更新</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col s8">
+                <div class="card">
+                    <div class="card-content"><span class="card-title">結果</span>
+                        <div id="result" style="display: none;">
+                            <div class="section">
+                                <h5>もし、検査結果が…</h5>
+                                <p>陰性だった場合、約<span id="ifn" class="flow-text"></span>%の確率であなたは非感染者です</p>
+                                <p>陽性だった場合、約<span id="ifp" class="flow-text"></span>%の確率であなたは感染者です</p>
+                            </div>
+                            <div class="section">
+                                <h5>もし、あなたが…</h5>
+                                <p>感染者だった場合でも、約<span id="ifi" class="flow-text"></span>%は陰性の結果が出てしまいます（見逃し）</p>
+                                <p>非感染者だった場合でも、約<span id="ifni" class="flow-text"></span>%は陽性の結果が出てしまいます（過剰検知）</p>
+                            </div>
+                        </div>
+                        <div id="description">
+                            左のボックスに数値を入力して、「結果を更新」を押してください
+                        </div>
                     </div>
                 </div>
             </div>
