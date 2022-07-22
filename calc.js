@@ -7,16 +7,15 @@ function calc() {
     const Acc = parseFloat(document.getElementById("acc").value) / 100;
 
     const infect = 1;
+    const nonInfact = 1;
 
     const Tp = Sen;
     const Fn = infect - Sen;
-
     const positive = Sen / Acc;
 
     const Fp = positive - Tp;
 
-    const Tn = Fp / (1 - Spe);
-    const nonInfect = Fp + Tn;
+    const Tn = - (Spe * Fp) / (Spe - 1);
 
     const negative = Tn + Fn;
 
