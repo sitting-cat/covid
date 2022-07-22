@@ -7,7 +7,7 @@ function calc() {
     const Acc = parseFloat(document.getElementById("acc").value) / 100;
 
     const infect = 1;
-    const nonInfact = 1;
+    const nonInfect = 1;
 
     const Tp = Sen;
     const Fn = infect - Sen;
